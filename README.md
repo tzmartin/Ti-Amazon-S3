@@ -1,6 +1,6 @@
 # Ti Amazon S3
 
-An app for uploading media to Amazon S3 using commonJS modules using Amazon's REST API. This app demonstrates how you can avoid the need to use a proxy server to route requests and instead, upload directly to an S3 bucket.
+This app demonstrates how you can upload media files directly to an Amazon S3 bucket, rather than routing requests through a proxy server, via Amazon's REST API.  It also shows how commonJS can be used to build scaleable Titanium applications.
 
 To use this app, you will need an Amazon account. Obtain S3 credentials: https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
 
