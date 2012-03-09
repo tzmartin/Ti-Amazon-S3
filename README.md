@@ -1,8 +1,8 @@
 # Ti Amazon S3
 
-An app for uploading media to Amazon S3 using commonJS modules.
+An app for uploading media to Amazon S3 using commonJS modules using Amazon's REST API. This app demonstrates how you can avoid the need to use a proxy server to route requests and instead, upload directly to an S3 bucket.
 
-Obtain S3 credentials: https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
+To use this app, you will need an Amazon account. Obtain S3 credentials: https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
 
 Upload an image, then visit the bucket: https://s3.amazonaws.com/BUCKETNAME/FILENAME.png
 
