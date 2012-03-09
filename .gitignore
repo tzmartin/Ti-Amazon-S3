@@ -1,5 +1,9 @@
 tmp
-build
-build/*
 .DS_Store
 .zip
+build/android/*
+build/iphone/*
+!build/android/.gitignore
+!build/iphone/.gitignore
+.settings
+build.log
