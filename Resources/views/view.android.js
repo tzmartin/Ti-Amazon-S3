@@ -73,9 +73,9 @@ _OBJ.view.add(_OBJ.imageView);
 // Configure AWS Object
 
 App.AWS.config({
-	//key: '14RBJQ0VK4WMERTD6SG2',
-	//secret: '5Wa/odVzuT6CbxDQXnowiOwdKU81/ol0QHL6VO5p',
-	bucket: 'bucket001.sempress',
+	key: 'YOUR KEY',
+	secret: 'YOUR SECRET',
+	bucket: 'YOUR BUCKET',
 	onsendstream: function(e) {
 		_OBJ.ind.value = e.progress ;
 		alert('ONSENDSTREAM - PROGRESS: ' + e.progress);
