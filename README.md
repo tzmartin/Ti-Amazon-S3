@@ -1,6 +1,8 @@
 # Ti Amazon S3
 
-Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon's REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).  This app contains a JavaScript module that simplifies the authorization flow and makes is EASY PEASY!
+Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon's REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).  This app contains a JavaScript module that simplifies the authorization flow and makes is EASY PEASY LEMON SQUEEZY!
+
+![Easy Peasy Lemon Squeezy](http://ucyberleague.net/images/clanlogos/535.jpg)
 
 ## Example
 
