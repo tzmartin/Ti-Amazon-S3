@@ -57,17 +57,16 @@ var uploadFile = function() {
                 bucket: 'tzmartin.com.files',
                 debug:true,
                 onsendstream: function(e) {
-                    $.ind.value = e.progress ;
+                    $.ind.value = e.progress;
                 },
                 error: function(e) {
-                    alert('Error: Response '+this.status);
-                    if (this.status == 400) {
-                        Alloy.Globals.AWS.abort();
-                    }
+                    var msg = (this.status == 0) ? 'Error: invalid keys' : 'Error: '+this.status;
+                    alert(msg);
+                    Alloy.Globals.AWS.abort();
                     toggleProgress(false);
                 },
                 success: function(e) {
-                    
+                    Ti.API.info(this.status);
                     // On android a success is fired for 400. This is a bug.
                     if (this.status == 400) {
                         Alloy.Globals.AWS.abort();

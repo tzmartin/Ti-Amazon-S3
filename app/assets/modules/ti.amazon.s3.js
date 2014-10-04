@@ -631,9 +631,13 @@ var Module = function() {
     timeout:Module.timeout,
     cache: false,
     onreadystatechange: function() {
+      Ti.API.info(this.status);
       if (this.status == 400){
         this.abort();
       }
+    },
+    onerror: function() {
+        Ti.API.error(this.status);
     }
   });
   
