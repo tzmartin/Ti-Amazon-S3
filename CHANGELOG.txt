@@ -1,1 +1,7 @@
-Place your change log text here.  This file will be incorporated with your app at package time.
+- 10-2-2014
+	- Complete app rewrite to 3.4.0.GA SDK
+	- Demo app now runs Alloy 1.4
+	- Removed additional module depencies. Now it's a single commonJS file.
+	- Simplified constructor and removed ```config``` and ```load``` methods.  Now just pass properties to ```PUT```.
+- 3-8-2012
+	- Initial release

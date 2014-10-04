@@ -1,24 +1,12 @@
 # Ti Amazon S3
 
-This app demonstrates how you can upload media files directly to an Amazon S3 bucket, rather than routing requests through a proxy server, via Amazon's REST API.  It also shows how commonJS can be used to build scaleable Titanium applications.
+Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon's REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).  This app contains a JavaScript module that simplifies the authorization flow and makes is EASY PEASY!
 
-To use this app, you will need an Amazon account. Obtain S3 credentials: https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
+## Example
 
-Upload an image, then visit the bucket: https://s3.amazonaws.com/BUCKETNAME/FILENAME.png
-
-This app requires the following modules: SHA-AWS, UTF-8, Date (see modules folder).
-
-## Images
-
-![Screen: iPhone](https://img.skitch.com/20120309-pqhwb728kb8p2cakpk65tb9quh.jpg)
-
-## Usage
-
-How to use this module:
-
-    var AWS = require('modules/amazon').load();
+    Alloy.Globals.AWS = require('modules/ti.amazon.s3');
        
-    AWS.config({
+    Alloy.Globals.AWS.PUT({
     	key: 'YOUR KEY',
     	secret: 'YOUR SECRET',
 		bucket: 'YOUR BUCKET',
@@ -26,19 +14,72 @@ How to use this module:
 		debug:true,
 		onsendstream: function(e) {},
 		error: function(e) {},
-		success: function(e) {}
+		success: function(e) {
+			Ti.API.info('DONE!!')
+		}
 	});
 
-    AWS.PUT(FILENAME);
+![test](https://raw.githubusercontent.com/tzmartin/Ti-Amazon-S3/master/screencast.gif)
 
+[Watch the Vimeo link](http://vimeo.com/107978881)
 
-## Known Issues:
+Note: This is a complete rewrite. If you used this project in the past, delete the old one and import this one.
 
-Android compatibility.  Currently the app is not functional with Android.
+A single module file lives in the ```app/assets/modules/``` directory.
 
-## Requirements
+![Assets folder](https://monosnap.com/image/ytTb2RNWPYd6h5NdfJMUTnPpT0679V.png)
 
--   Titanium SDK 1.8+
+**Alternatively**
+
+You can compile this JavaScript file into a native module and ship it as a static binary.  If you're interested, download this zip file [ti.amazon.s3-iphone-1.1.0.zip](https://raw.githubusercontent.com/tzmartin/Ti-Amazon-S3/master/dist/ti.amazon.s3-iphone-1.1.0.zip) and add it to your ```tiapp.xml```.
+
+Instatiate it using ```require('ti.amazon.s3');```.
+
+### Changelog
+
+- 10-2-2014
+	- Complete app rewrite to 3.4.0.GA SDK
+	- Demo app now runs Alloy 1.4
+	- Removed additional module depencies. Now it's a single commonJS file.
+	- Simplified constructor and removed ```config``` and ```load``` methods.  Now just pass properties to ```PUT```.
+- 3-8-2012
+	- Initial release
+
+## Amazon Configuration
+
+[Obtain S3 credentials](https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key) and set a bucket policy.  You can use Amazon's [policy generator](http://awspolicygen.s3.amazonaws.com/policygen.html) if needed.  Simply save this policy to your bucket properties.  Here's a tutorial if needed:[http://www.jppinto.com/2011/12/access-denied-to-file-amazon-s3-bucket/](http://www.jppinto.com/2011/12/access-denied-to-file-amazon-s3-bucket/).
+
+Login to your console here: [https://console.aws.amazon.com/s3/home](https://console.aws.amazon.com/s3/home)
+
+Here's an example policy:
+
+```
+{
+  "Id": "Policy1412292920796",
+  "Statement": [
+    {
+      "Sid": "Stmt1412292914309",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::tzmartin.com.files/*",
+      "Principal": {
+        "AWS": [
+          "*"
+        ]
+      }
+    }
+  ]
+}
+```
+
+Upload an image, then visit the bucket: https://s3.amazonaws.com/BUCKETNAME/FILENAME.png
+
+### Known Issues:
+
+Android fails to upload properly. 400 server response.
 
 ## License
 

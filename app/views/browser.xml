@@ -1,0 +1,18 @@
+<Alloy>
+	
+	<!-- iOS -->
+	<NavigationWindow id="nav" platform="ios">
+        <Window id="win">
+       		<RightNavButton>
+            	<Button onClick='closeWin'>Close</Button>
+        	</RightNavButton>
+            <WebView id="webview" onLoad="onLoad" />
+        </Window>
+    </NavigationWindow>
+    
+    <!-- Android -->
+	<Window id="win" title="Image Browser" platform="android">
+		<WebView id="webview" onLoad="onLoad" />
+	</Window>
+	
+</Alloy>

@@ -3,6 +3,7 @@ tmp
 .zip
 build/android/*
 build/iphone/*
+video/*
 !build/android/.gitignore
 !build/iphone/.gitignore
 .settings

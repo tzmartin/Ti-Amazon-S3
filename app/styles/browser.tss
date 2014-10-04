@@ -1,0 +1,30 @@
+/*
+ *
+ * Navigation
+ *
+*/
+
+"#nav": {
+  backgroundColor:'#fff'
+}
+
+/*
+ *
+ * Windows
+ *
+*/
+
+"#win":{
+	title:'Image Browser',
+	backgroundColor:'#fff'
+}
+
+/*
+ *
+ * Webview
+ *
+*/
+
+"#webview":{
+	
+}
