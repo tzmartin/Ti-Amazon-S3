@@ -1,1 +1,0 @@
-module.exports = [{"isId":true,"priority":100000.0002,"key":"nav","style":{backgroundColor:"#fff",}},{"isId":true,"priority":100000.0003,"key":"win","style":{title:"Image Browser",backgroundColor:"#fff",}},{"isId":true,"priority":100000.0004,"key":"webview","style":{}}];

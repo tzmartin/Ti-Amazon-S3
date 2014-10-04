@@ -8,3 +8,4 @@ video/*
 !build/iphone/.gitignore
 .settings
 build.log
+Resources/*
