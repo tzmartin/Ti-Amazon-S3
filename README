@@ -12,6 +12,9 @@ Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon
 		bucket: 'YOUR BUCKET',
 		GSM:' -0700',
 		debug:true,
+		fileName: FILE_TO_UPLOAD,
+		uploadDir: 'PATH_TO_UPLOAD_DIR_ON_S3',
+		timeout: 99000,
 		onsendstream: function(e) {},
 		error: function(e) {},
 		success: function(e) {
@@ -36,6 +39,9 @@ You can compile this JavaScript file into a native module and ship it as a stati
 Instatiate it using ```require('ti.amazon.s3');```.
 
 ### Changelog
+
+- 10-19-2014
+	- Android works! (Fixed: Android fails to upload properly. 400 server response.)
 
 - 10-2-2014
 	- Complete app rewrite to 3.4.0.GA SDK
@@ -79,7 +85,6 @@ Upload an image, then visit the bucket: https://s3.amazonaws.com/BUCKETNAME/FILE
 
 ### Known Issues:
 
-Android fails to upload properly. 400 server response.
 
 ## License
 
