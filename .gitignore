@@ -1,8 +1,7 @@
 tmp
 .DS_Store
 .zip
-build/android/*
-build/iphone/*
+build/*
 video/*
 !build/android/.gitignore
 !build/iphone/.gitignore

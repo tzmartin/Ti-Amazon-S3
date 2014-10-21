@@ -27,8 +27,19 @@ var toggleProgress = function(state){
         $.myImageView.animate({opacity:1,duration:500});
     }
 };
+
 var uploadFile = function() {
-    
+    doUpload({
+        key: 'YOUR KEY',
+        secret: 'YOUR SECRET',
+        bucket: 'YOUR BUCKET',
+        uploadDir: '/',
+        gsm: ' -0700',
+    });
+};
+
+var doUpload = function(args) {
+
     toggleProgress(true);
     
     // Open PhotoGallery
@@ -53,14 +64,19 @@ var uploadFile = function() {
                         
             // Upload to S3 Bucket
             Alloy.Globals.AWS.PUT({
-                fileName: f.name,
-                bucket: 'tzmartin.com.files',
+                key: args.key,
+                secret: args.secret,
+                bucket: args.bucket,
+                GSM: args.gsm,
                 debug:true,
+                fileName: f.name,
+                uploadDir: args.uploadDir,
+                timeout: 99000,
                 onsendstream: function(e) {
                     $.ind.value = e.progress;
                 },
                 error: function(e) {
-                    var msg = (this.status == 0) ? 'Error: invalid keys' : 'Error: '+this.status;
+                    var msg = (this.status === 0) ? 'Error: invalid keys' : 'Error: '+this.status;
                     alert(msg);
                     Alloy.Globals.AWS.abort();
                     toggleProgress(false);
@@ -118,3 +134,4 @@ var abortHTTP = function() {
 */
 
 $.main.open();
+
