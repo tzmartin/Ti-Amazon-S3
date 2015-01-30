@@ -340,6 +340,7 @@ Module.prototype.PUT = function(_args) {
 
 	this.fileName = _args.fileName;
 	var uploadDir = _args.uploadDir;
+	var region = _args.region;
 		
 	if (_args.key) { Module.APIKey = _args.key; }
 	if (_args.secret) { Module.SecretKey = _args.secret; }
@@ -377,7 +378,7 @@ Module.prototype.PUT = function(_args) {
 		   return;
 		}
 		
-		this.fileURL = 'https://'+Module.AWSBucketName+'.s3.amazonaws.com' + uploadDir + Module.fileName;
+		this.fileURL = 'https://s3-' + region + '.amazonaws.com' + Module.AWSBucketName + uploadDir + Module.fileName;
 		
 		this.log('File: '+this.fileURL);
 		
