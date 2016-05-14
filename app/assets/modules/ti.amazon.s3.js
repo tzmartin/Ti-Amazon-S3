@@ -1,6 +1,6 @@
 /*
  * A Titanium Mobile commonJS module for interacting with Amazon S3
- * 
+ *
  * Obtain S3 credentials here:
  * https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
  *
@@ -20,7 +20,7 @@
  * sha-aws.js
  *
 */
- 
+
 var SHA = function SHA() {
 
  /*
@@ -45,13 +45,13 @@ var SHA = function SHA() {
 	this.str_sha1 = function(s){
 		return this.binb2str(this.core_sha1(this.str2binb(s),s.length * this.chrsz));
 	};
-	this.hex_hmac_sha1 = function(key, data){ 
+	this.hex_hmac_sha1 = function(key, data){
 		return this.binb2hex(this.core_hmac_sha1(key, data));
 	};
-	this.b64_hmac_sha1 = function(key, data){ 
+	this.b64_hmac_sha1 = function(key, data){
 		return this.binb2b64(this.core_hmac_sha1(key, data));
 	};
-	this.str_hmac_sha1 = function(key, data){ 
+	this.str_hmac_sha1 = function(key, data){
 		return this.binb2str(this.core_hmac_sha1(key, data));
 	};
 
@@ -297,7 +297,7 @@ var Module = function() {
   this.fileName = false;
   this.timeout = 99000;
   this.debug = false;
-	
+
   this.http = Ti.Network.createHTTPClient({
     timeout: 99000,
     cache: false,
@@ -311,13 +311,13 @@ var Module = function() {
         Ti.API.error(this.status);
     }
   });
-  
+
   /*
    * Import SHA
    */
   this.SHA = new SHA();
   this.Utf8 = new UTF8();
-  
+
   this.abort = function() {
     if (typeof this.http.abort == 'function') {
       this.log('Aborting HTTP client');
@@ -326,21 +326,21 @@ var Module = function() {
       this.log('Nothing to abort.');
     }
   };
-  
+
   this.log = function(str) {
- 
+
   	if (Module.debug) {
   		Ti.API.info(str);
   	}
   };
-  
+
 };
 
 Module.prototype.PUT = function(_args) {
 
 	this.fileName = _args.fileName;
 	var uploadDir = _args.uploadDir;
-		
+
 	if (_args.key) { Module.APIKey = _args.key; }
 	if (_args.secret) { Module.SecretKey = _args.secret; }
 	if (_args.bucket) { Module.AWSBucketName = _args.bucket; }
@@ -348,50 +348,50 @@ Module.prototype.PUT = function(_args) {
 	if (_args.timeout) { Module.timeout = _args.timeout; }
 	if (_args.debug) { Module.debug = _args.debug; }
 	if (_args.GSM) { Module.GSM = _args.GSM; }
-		
+
 	/*
   	 * Create HTTP Object
   	 */
   	 this.http.setTimeout(Module.timeout);
-     
+
      if (Ti.Platform.osname == 'android') {
-        this.http.onload = _args.success;  
+        this.http.onload = _args.success;
         this.http.onsendstream = _args.onsendstream;
         this.http.ondatastream = _args.ondatastream;
-        this.http.onerror = _args.error;       
+        this.http.onerror = _args.error;
      } else {
         this.http.setOnsendstream(_args.onsendstream);
         this.http.setOndatastream(_args.ondatastream);
         this.http.setOnload(_args.success);
         this.http.setOnerror(_args.error);
      }
-		
+
 	/*
   	 * Get File Object
   	 */
 		var uploadFile = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, _args.fileName);
 		var fileContents = uploadFile.read();
-				
+
 		if (!uploadFile.exists()){
 		   alert('File not found. Please check that ' + Module.fileName + ' exists in your Data directory.');
 		   return;
 		}
-		
+
 		this.fileURL = 'https://'+Module.AWSBucketName+'.s3.amazonaws.com' + uploadDir + Module.fileName;
-		
+
 		this.log('File: '+this.fileURL);
-		
+
 		this.http.open('PUT', this.fileURL, true);
-		
+
 		var Moment = require('alloy/moment');
-		var curDate = Moment().format('ddd, D MMMM YYYY HH:mm:ss') + Module.GSM;
+    curDate = Moment().toDate().toUTCString();
 		var StringToSign = ''+'PUT\n\n'+''+fileContents.mimeType+'\n' + '' + curDate + '\n/'+''+Module.AWSBucketName + uploadDir + Module.fileName;
 
 		var AWSAccessKeyID = 'AWS ' + Module.APIKey + ':';
 		var AWSSignature = this.SHA.b64_hmac_sha1(Module.SecretKey, this.Utf8.encode(StringToSign));
 		var AWSAuthHeader = AWSAccessKeyID.concat(AWSSignature);
-		
-		this.http.setRequestHeader('Authorization', AWSAuthHeader); 
+
+		this.http.setRequestHeader('Authorization', AWSAuthHeader);
 		if (OS_IOS) {
 			this.http.setRequestHeader('Content-Length', uploadFile.size);
 		}
