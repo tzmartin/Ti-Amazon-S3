@@ -2,6 +2,8 @@
 
 A CommonJS module for Amazon S3.
 
+
+
 Module location: `/blob/master/app/assets/modules/ti.amazon.s3.js`
 
 *This is a mobile app test case, built using Appcelerator Alloy / Titanium Mobile SDK.*
@@ -18,8 +20,6 @@ Tested: Titanium SDK v5.3.1.GA
 ## Description
 
 Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon's REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).  This app contains a JavaScript module that simplifies the authorization flow and makes is EASY PEASY LEMON SQUEEZY!
-
-![Easy Peasy Lemon Squeezy](https://www.supergaminator.com/Content/images/assets/GameAssets/game_317/game_317_logo_800x364_DEFAULT.png)
 
 ## Example Apps
 
@@ -95,6 +95,8 @@ Here's an example policy:
 ```
 
 Upload an image, then visit the bucket: https://s3.amazonaws.com/BUCKETNAME/FILENAME.png
+
+![Easy Peasy Lemon Squeezy](https://www.supergaminator.com/Content/images/assets/GameAssets/game_317/game_317_logo_800x364_DEFAULT.png)
 
 ### Titanium SDK Compilation
 
