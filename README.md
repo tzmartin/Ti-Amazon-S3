@@ -11,17 +11,22 @@ Version: v1.1
 Tested: Titanium SDK v5.3.1.GA
 ```
 
+![test](https://raw.githubusercontent.com/tzmartin/Ti-Amazon-S3/master/screencast.gif)
+
+[Watch the Vimeo link](http://vimeo.com/107978881)
+
 ## Description
 
 Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon's REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).  This app contains a JavaScript module that simplifies the authorization flow and makes is EASY PEASY LEMON SQUEEZY!
 
-![Easy Peasy Lemon Squeezy](http://ucyberleague.net/images/clanlogos/535.jpg)
+![Easy Peasy Lemon Squeezy](https://www.supergaminator.com/Content/images/assets/GameAssets/game_317/game_317_logo_800x364_DEFAULT.png)
 
 ## Example Apps
 
-**Whichiscooler** by By [S. Marston Maddox](http://www.whichiscooler.com/)
-
-[![Whichiscooler](http://a3.mzstatic.com/us/r30/Purple20/v4/84/4f/9a/844f9a97-d1af-2bd8-9a38-d2e43f4ed525/icon90x90.png)](https://itunes.apple.com/us/app/whichiscooler/id971389872?mt=8#)
+|   |  App | Publisher  | Description  | 
+|---|---|---|---|
+|  [![Whichiscooler](http://a3.mzstatic.com/us/r30/Purple20/v4/84/4f/9a/844f9a97-d1af-2bd8-9a38-d2e43f4ed525/icon90x90.png)](https://itunes.apple.com/us/app/whichiscooler/id971389872?mt=8#) |  **Whichiscooler** | [S. Marston Maddox](http://www.whichiscooler.com/)  |  Whichiscooler is a tool to discover and share the coolest things.
+ |
 
 [Add your app](https://github.com/tzmartin/Ti-Amazon-S3/issues/new)
 
@@ -44,10 +49,6 @@ Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon
 			Ti.API.info('DONE!!')
 		}
 	});
-
-![test](https://raw.githubusercontent.com/tzmartin/Ti-Amazon-S3/master/screencast.gif)
-
-[Watch the Vimeo link](http://vimeo.com/107978881)
 
 Note: This is a complete rewrite. If you used this project in the past, delete the old one and import this one.
 
