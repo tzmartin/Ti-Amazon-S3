@@ -8,3 +8,4 @@ video/*
 .settings
 build.log
 Resources/*
+test

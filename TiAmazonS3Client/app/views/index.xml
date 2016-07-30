@@ -1,0 +1,13 @@
+<Alloy>
+	<Window id="main">
+		<View id="content">
+			<Label id="title" />
+			<ImageView id="myImageView" onClick="openFile" />
+			<ProgressBar id="ind" />
+			<Button id="btnUpload" onClick="uploadFile" />
+		</View>
+		<View id="progress" onClick="abortHTTP">
+			<ImageView id="progressImage" />
+		</View>
+	</Window>
+</Alloy>

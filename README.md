@@ -1,13 +1,34 @@
 # Ti Amazon S3
 
+A CommonJS module for Amazon S3.
+
+Module location: `/blob/master/app/assets/modules/ti.amazon.s3.js`
+
+*This is a mobile app test case, built using Appcelerator Alloy / Titanium Mobile SDK.*
+
+```
+Version: v1.1
+Tested: Titanium SDK v5.3.1.GA
+```
+
+## Description
+
 Upload media files directly to an Amazon S3 bucket using signed URLs and [Amazon's REST API](http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html).  This app contains a JavaScript module that simplifies the authorization flow and makes is EASY PEASY LEMON SQUEEZY!
 
 ![Easy Peasy Lemon Squeezy](http://ucyberleague.net/images/clanlogos/535.jpg)
 
-## Example
+## Example Apps
+
+**Whichiscooler** by By [S. Marston Maddox](http://www.whichiscooler.com/)
+
+[![Whichiscooler](http://a3.mzstatic.com/us/r30/Purple20/v4/84/4f/9a/844f9a97-d1af-2bd8-9a38-d2e43f4ed525/icon90x90.png)](https://itunes.apple.com/us/app/whichiscooler/id971389872?mt=8#)
+
+[Add your app](https://github.com/tzmartin/Ti-Amazon-S3/issues/new)
+
+## How to Use
 
     Alloy.Globals.AWS = require('modules/ti.amazon.s3');
-       
+
     Alloy.Globals.AWS.PUT({
     	key: 'YOUR KEY',
     	secret: 'YOUR SECRET',
@@ -40,20 +61,9 @@ You can compile this JavaScript file into a native module and ship it as a stati
 
 Instatiate it using ```require('ti.amazon.s3');```.
 
-### Changelog
+## Requirements
 
-- 10-19-2014
-	- Android works! (Fixed: Android fails to upload properly. 400 server response.)
-
-- 10-2-2014
-	- Complete app rewrite to 3.4.0.GA SDK
-	- Demo app now runs Alloy 1.4
-	- Removed additional module depencies. Now it's a single commonJS file.
-	- Simplified constructor and removed ```config``` and ```load``` methods.  Now just pass properties to ```PUT```.
-- 3-8-2012
-	- Initial release
-
-## Amazon Configuration
+### Amazon Configuration
 
 [Obtain S3 credentials](https://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key) and set a bucket policy.  You can use Amazon's [policy generator](http://awspolicygen.s3.amazonaws.com/policygen.html) if needed.  Simply save this policy to your bucket properties.  Here's a tutorial if needed:[http://www.jppinto.com/2011/12/access-denied-to-file-amazon-s3-bucket/](http://www.jppinto.com/2011/12/access-denied-to-file-amazon-s3-bucket/).
 
@@ -85,13 +95,44 @@ Here's an example policy:
 
 Upload an image, then visit the bucket: https://s3.amazonaws.com/BUCKETNAME/FILENAME.png
 
+### Titanium SDK Compilation
+
+You must have the following requirements to compile this app:
+
+- A valid Appcelerator Platform account (free or paid):
+	- [Sign up](http://www.appcelerator.com/signup) for an Appcelerator Platform account
+- [Appcelerator Studio](https://platform.appcelerator.com/#/product/studio) should be installed and ready for use
+- The latest Titanium SDK installation ([requirements](http://docs.appcelerator.com/platform/latest/#!/guide/Prerequisites))
+- [Oracle JDK](http://docs.appcelerator.com/platform/latest/#!/guide/Installing_Oracle_JDK)
+- [Node.js](http://docs.appcelerator.com/platform/latest/#!/guide/Installing_Node): required for the Titanium command-line tools like the CLI, Alloy and Arrow.
+- iOS and/or Android SDK installation
+
+*Note: To minimize the risk of problems, please refer to the [Titanium Compatibility Matrix](http://docs.appcelerator.com/platform/latest/#!/guide/Titanium_Compatibility_Matrix) whenever you make changes to your Titanium environment.*
+
+### Changelog
+
+- 07-29-2016
+  - Update README: add example app
+  - Bump to Ti SDK v5.3.1.GA
+- 05-13-2015
+	- Android works! (Fixed: Android fails to upload properly. 400 server response.)
+  - Bump Ti SDK v5.2.2.GA
+- 10-2-2014
+	- Complete app rewrite to 3.4.0.GA SDK
+	- Demo app now runs Alloy 1.4
+	- Removed additional module depencies. Now it's a single commonJS file.
+	- Simplified constructor and removed ```config``` and ```load``` methods.  Now just pass properties to ```PUT```.
+- 3-8-2012
+	- Initial release
+
 ### Known Issues:
 
+**[Create a ticket](https://github.com/tzmartin/Ti-Amazon-S3/issues/new)**
 
 ## License
 
-@authors	
-		
+@authors
+
 -   Terry Martin <martin@semanticpress.com>
 
 @license    

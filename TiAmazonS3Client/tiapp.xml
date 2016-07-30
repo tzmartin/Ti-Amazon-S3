@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.sp.tiamazons3</id>
+    <name>TiAmazonS3Client</name>
+    <version>1.0</version>
+    <publisher>not specified</publisher>
+    <url>unspecified</url>
+    <description>not specified</description>
+    <copyright>not specified</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>85e3e466-89c3-4c20-9777-528145658af0</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+            <key>NSAppTransportSecurity</key>
+            <dict>
+                <key>NSExceptionDomains</key>
+                <dict>
+                    <key>s3.amazonaws.com</key>
+                    <dict>
+                          <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                          <string>TLSv1.0</string>
+                          <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                          <false/>
+                          <key>NSTemporaryExceptionRequiresForwardSecrecy</key>
+                          <false/>
+                          <key>NSTemporaryExceptionMinimumTLSVersion</key>
+                          <string>1.0</string>
+                          <key>NSIncludesSubdomains</key>
+                          <true/>
+                          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                          <true/>
+                          <key>NSExceptionRequiresForwardSecrecy</key>
+                          <false/>
+                    </dict>
+                    <key>amazonaws.com.cn</key>
+                    <dict>
+                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                        <string>TLSv1.0</string>
+                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                        <false/>
+                        <key>NSIncludesSubdomains</key>
+                        <true/>
+                    </dict>
+                </dict>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules/>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">true</target>
+        <target device="windows">true</target>
+    </deployment-targets>
+    <sdk-version>5.1.1.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">56ba3684761b7c784cb17b38</property>
+</ti:app>
