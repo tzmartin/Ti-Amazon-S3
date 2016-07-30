@@ -4,14 +4,14 @@
     <name>AMZNS3</name>
     <version>1.1</version>
     <publisher>tzmartin</publisher>
-    <url>http://</url>
+    <url>http://www.tzmartin.com</url>
     <description>Amazon S3 module for Titanium Mobile</description>
     <copyright>2014 by tzmartin</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>false</analytics>
-    <guid>23e8689c-4a8e-494c-a920-d5acc774199e</guid>
+    <guid>11111111-1111-1111-1111-111111111111</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
